@@ -7,6 +7,7 @@ Notes: Provides CRUD operations for Test Tasks.
 """
 
 from typing import List
+from datetime import datetime # Added import for datetime
 from fastapi import FastAPI, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
@@ -30,8 +31,8 @@ class TestTaskUpdate(TestTaskBase):
 class TestTaskResponse(TestTaskBase):
     id: int
     status: str
-    created_at: str # Will be formatted as ISO string
-    updated_at: str # Will be formatted as ISO string
+    created_at: datetime # Changed to datetime
+    updated_at: datetime # Changed to datetime
     is_active: bool
 
     class Config:
